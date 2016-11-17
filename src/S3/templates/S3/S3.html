@@ -1,0 +1,17 @@
+<form enctype="multipart/form-data" action="{% url 'S3:upload'  %}" method="post">{% csrf_token %}  
+    <input type="file" name="myfile" />  
+    <br/>  
+    <input type="submit" value="upload"/>  
+</form>  
+<form  action="{% url 'S3:download'  %}"> 
+    <input type="submit" value="download"/>  
+</form>  
+
+
+<form action="{% url 'S3:upload' %}" method="post"> {% csrf_token %}
+{% for file in file_list %}
+    <input type="radio" name="file" id="choice{{ forloop.counter }}" value="{{ file.id }}" />
+    <label for="choice{{ forloop.counter }}">{{ file.name }}</label><br />
+{% endfor %}
+<input type="submit" value="Vote" />
+</form>
