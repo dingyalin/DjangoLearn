@@ -1,4 +1,5 @@
 # encoding=utf-8
+
 from __future__ import unicode_literals
 from django.db import models
 from django.contrib.auth.models import User
@@ -20,6 +21,9 @@ class BBS(models.Model):
 class Comments(models.Model):
     title = models.CharField(max_length=32, unique=True)
     
+    def __str__(self):
+        return self.title
+    
 
 class Category(models.Model):
     name = models.CharField(max_length=32, unique=True)
@@ -32,6 +36,8 @@ class BBS_user(models.Model):
     user = models.OneToOneField(User)
     signature = models.CharField(max_length=128, default="This guy is too lazy") 
     photo = models.ImageField(upload_to="upload_imgs/", default="upload_imgs/user-1.jpg")
+    def __str__(self):
+        return self.user.username
     
     
     
