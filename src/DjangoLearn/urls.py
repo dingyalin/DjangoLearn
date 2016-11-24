@@ -19,4 +19,5 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^S3/', include('S3.urls', namespace="S3")),
+    url(r'^bbs/', include('app01.urls', namespace="bbs")),
 ]
