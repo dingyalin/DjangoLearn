@@ -17,8 +17,6 @@ def list_file(request, perfix=""):
     context['path_list'] = path_list
     context['file_list'] = file_list
     
-    print context
-    
     return render(request, 'S3/S3.html', context)
 
 def upload(request):  
