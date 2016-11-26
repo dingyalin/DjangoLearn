@@ -1,0 +1,18 @@
+{% load static %}
+<html>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <style>
+        h1 {
+            color: #333333;
+            font-size: 48px;
+            text-shadow: 3px 3px 3px #666666;
+            }
+    </style>
+    <script type="text/javascript" src="/js/myScript.js"></script>
+</head>
+<body>
+    <img src="{% static "images/sitelogo.png" %}" alt="Logo" />
+    {% block content %}{% endblock %}
+</body>
+</html>

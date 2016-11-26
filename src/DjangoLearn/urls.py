@@ -20,4 +20,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^S3/', include('S3.urls', namespace="S3")),
     url(r'^bbs/', include('app01.urls', namespace="bbs")),
+    url(r'^articles/', include('TestModel.urls')),
+    url(r'^blog/', include('blog.urls')),
+    url(r'^polls/', include('polls.urls', namespace="polls")),
 ]

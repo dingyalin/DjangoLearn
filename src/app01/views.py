@@ -6,3 +6,7 @@ from django.http import HttpRequest
 def index(request):
     context = {}
     return render(request, 'app01/index.html', context)
+
+def flappy(request):
+    context = {}
+    return render(request, 'app01/flappy.html', context)
