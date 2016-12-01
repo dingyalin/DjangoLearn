@@ -10,6 +10,11 @@ def index(request):
     context = {"bbs_list": bbs_list}
     return render(request, 'app01/index.html', context)
 
+def detail(request, bbs_id):
+    bbs = BBS.objects.get(id=bbs_id)
+    context = {"bbs_obj": bbs}
+    return render(request, 'app01/detail.html', context)
+
 def flappy(request):
     context = {}
     return render(request, 'app01/flappy.html', context)

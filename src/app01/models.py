@@ -19,10 +19,13 @@ class BBS(models.Model):
         return self.title
 
 class Comments(models.Model):
-    title = models.CharField(max_length=32, unique=True)
+    bbs = models.ForeignKey('BBS')
+    bbs_user = models.ForeignKey('BBS_user')
+    comment = models.CharField(max_length=128)
+    created_at = models.DateTimeField()
     
     def __str__(self):
-        return self.title
+        return str(self.id)
     
 
 class Category(models.Model):

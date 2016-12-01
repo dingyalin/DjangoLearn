@@ -10,5 +10,6 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
+    url(r'^detail/(\d+)$', views.detail, name='detail'),
     url(r'^flappy$', views.flappy, name='flappy'),
 ]
