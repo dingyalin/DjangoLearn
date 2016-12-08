@@ -3,10 +3,25 @@
 {% block page-content %}
 <div class="contents">
     {{bbs_obj.title}}
-
     <br>
 
     {{bbs_obj.content}}
+    <br>
+    
+    
+    <form action="/bbs/sub_comment" method="POST">
+        {% csrf_token %}
+        <textarea cols="80" rows="5" name="comment"/></textarea>
+        <input type="hidden" name="bbs_id" value="{{bbs_obj.id}}"/>
+        <input type="submit" name="Add comment"/>
+    </form>
+    
+    {% for comment in comments %}
+        {{ comment.bbs_user }} {{ comment.created_at }}
+        <br>
+        {{ comment.comment }}
+        <br>
+    {% endfor %}
 </div>
 {% endblock %}
 
