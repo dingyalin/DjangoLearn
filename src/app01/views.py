@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpRequest
 from django.http import HttpResponseRedirect
 from django.template.context import RequestContext
+from django.contrib import auth
 
 from .models import BBS, BBS_user, Comments
 
@@ -25,3 +26,22 @@ def flappy(request):
 def sub_comment(request):
     print sub_comment.POST
     return HttpResponseRedirect('/detail/1', context_instance=RequestContext(request))
+
+def acc_login(request):
+    username = request.POST.get("username")
+    password = request.POST.get("password")
+    user = auth.authenticate(username=username)
+    print username,password
+    
+    if user is not None:
+        content = '''
+        '''
+        return HttpResponseRedirect('/', context_instance=RequestContext(request))
+
+def login(request):
+    context = {}
+    return render(request, 'app01/flappy.html', context)
+
+def logout(request):
+    context = {}
+    return render(request, 'app01/flappy.html', context)
